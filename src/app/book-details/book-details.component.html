@@ -1,0 +1,14 @@
+<h3>Books Details</h3>
+@if(currentBook(); as book ){
+
+<div>
+  Id: {{ book.id }}
+  <br />
+  Title: {{ book.title }}
+  <br />
+  Author: {{ book.author }}
+</div>
+
+} @else {
+<div>no book selected</div>
+}

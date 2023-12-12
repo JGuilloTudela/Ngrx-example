@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="content">
+    <app-book-creator></app-book-creator>
+  </div>
+  <div class="content">
+    <h3>Books List ({{ totalBooks() }})</h3>
+    <div
+      class="item"
+      *ngFor="let book of books()"
+      [routerLink]="['book', book.id]"
+      routerLinkActive="router-link-active"
+    >
+      {{ book.title }}
+    </div>
+  </div>
+  <div class="content"><router-outlet></router-outlet></div>
+</div>

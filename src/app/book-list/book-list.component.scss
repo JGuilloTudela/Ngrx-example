@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    column-gap: 1rem;
+    height: 30rem;
+      overflow: auto;
+    .content {
+      border: 1px solid black;
+      padding: 1rem;
+      .item {
+        cursor: pointer;
+      }
+    }
+  }
+  

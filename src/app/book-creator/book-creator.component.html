@@ -1,0 +1,32 @@
+<div>
+  <h3>Create new book</h3>
+  <div class="container">
+    @switch (step) { @case (0) {
+    <app-step-1 [title]="(book$ | async)?.title || null"></app-step-1>
+    } @case (1) {
+    <app-step-2 [author]="(book$ | async)?.author || null"></app-step-2>
+    } @case (2) {
+    <app-step-3 [year]="(book$ | async)?.year || null"></app-step-3>
+    } @default {
+    <app-step-1
+      [readOnly]="true"
+      [title]="(book$ | async)?.title || null"
+    ></app-step-1>
+    <app-step-2
+      [readOnly]="true"
+      [author]="(book$ | async)?.author || null"
+    ></app-step-2>
+    <app-step-3
+      [readOnly]="true"
+      [year]="(book$ | async)?.year || null"
+    ></app-step-3>
+    } }
+  </div>
+  <div class="buttons">
+    <button (click)="prev()">PREV</button>
+    <button *ngIf="step < 3" (click)="step = step + 1">NEXT</button>
+    <button *ngIf="step === 3" (click)="submit()">SUBMIT</button>
+  </div>
+</div>
+<hr />
+<div>STATE: {{ bookCreatorStore.state$ | async | json }}</div>
